@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layoutHeader"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="130dp"
+    android:background="@drawable/shape_header">
+    
+    <TextView 
+    	android:layout_width="fill_parent"
+    	android:layout_height="wrap_content"
+    	android:padding="10dp"
+    	android:text="@string/app_name"
+    	android:gravity="center"
+    	style="@style/texto12"
+    	android:textColor="@color/branco"/>
+    
+    <EditText
+    	android:id="@+id/editAddProduto"
+    	android:hint="@string/descricao"
+    	android:layout_width="fill_parent"
+    	android:layout_height="wrap_content"
+    	android:lines="1"/>
+    
+    <TableLayout
+    	android:orientation="horizontal"
+    	android:layout_width="wrap_content"
+    	android:layout_height="wrap_content"
+    	android:stretchColumns="1">
+    
+     	<TableRow>
+     		<Button 
+		    	android:id="@+id/btNovaLista"
+		    	android:layout_width="fill_parent"
+		    	android:layout_height="wrap_content"
+		    	android:text="@string/novaLista"
+		    	android:textColor="@color/preto"
+		    	android:textStyle="bold"/> 
+    
+		    <Button 
+		    	android:id="@+id/btAddProduto"
+		    	android:layout_width="fill_parent"
+		    	android:layout_height="wrap_content"
+		    	android:text="@string/add"
+		    	android:textColor="@color/preto"
+		    	android:textStyle="bold"/>
+    	</TableRow>    
+    </TableLayout>       	
+</LinearLayout>
+    	

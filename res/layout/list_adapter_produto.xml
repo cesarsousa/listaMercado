@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:background="@color/cinzaC"
+    android:orientation="horizontal"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content">
+    
+    <TableLayout
+    	android:orientation="horizontal"
+    	android:layout_width="wrap_content"
+    	android:layout_height="wrap_content"
+    	android:background="@drawable/gradiente"
+    	android:stretchColumns="1">
+    
+     	<TableRow>
+     		 <TextView
+				android:id="@+id/listAdapterOrcamento_nomeProduto"  
+				android:layout_width="fill_parent" 
+				android:layout_height="wrap_content"
+				android:padding="10dp"		
+				android:textStyle="bold"
+				android:textColor="@color/preto"				
+				android:layout_gravity="left"/>
+   
+		    <EditText 
+		        android:id="@+id/listAdapterOrcamento_valorProduto"
+		        android:hint="@string/valor"  
+				android:layout_width="wrap_content" 
+				android:layout_height="wrap_content"
+				android:layout_gravity="right"
+				android:singleLine="true"
+				android:digits="1234567890.," 
+				android:inputType="numberDecimal"/>
+    	</TableRow>    
+    </TableLayout>     
+</LinearLayout>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hello">Hello World, Main!</string>
+    <string name="app_name">Lista de Compras</string>
+    <string name="aguarde">Por favor aguarde...</string>
+    <string name="copyright">Lista Compras - Todos os direitos reservados</string>
+    <string name="titulo">Lista Compras</string>
+    
+    <!-- Mensagens -->
+    <string name="erro_conexao_indisponivel">Conexão indisponível, por favor ative sua rede móvel ou Wi-Fi.</string>
+    <string name="erro_io">Ooops, sistema indisponível no momento</string>
+    <string name="abrirSite">Abrir o Site</string>
+    <string name="menu_luxo">Luxo</string>
+    <string name="menu_esportivos">Esportivoc</string>
+    <string name="menu_classicos">Clássicos</string>
+    <string name="menu_sobre">Sobre</string>
+    <string name="nome">Nome</string>
+    <string name="descricao">Descrição do produto</string>
+    <string name="add">adicionar produto</string>
+    <string name="novaLista">nova lista</string>
+    <string name="valor">valor</string>
+</resources>
