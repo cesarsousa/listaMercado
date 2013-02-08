@@ -7,7 +7,10 @@ import java.util.List;
 import android.app.AlertDialog;
 import android.app.ListActivity;
 import android.content.DialogInterface;
+import android.graphics.MaskFilter;
 import android.os.Bundle;
+import android.text.InputType;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -26,6 +29,7 @@ public class MainActivity extends ListActivity {
 	private Button btAddProduto;
 	private Button btNovaLista;
 	private TextView textTotalProdutos;	
+	private TextView textValorTotal;	
 	
 	private static List<Produto> produtos = new ArrayList<Produto>();
 	
@@ -38,8 +42,11 @@ public class MainActivity extends ListActivity {
         btAddProduto = (Button) findViewById(R.id.btAddProduto);               
         btNovaLista = (Button) findViewById(R.id.btNovaLista);
         
-        textTotalProdutos = (TextView) findViewById(R.id.txtTotalProdutos);
-        textTotalProdutos.setText("Total de itens no carrinho: " + produtos.size() + " produtos.");
+        textTotalProdutos = (TextView) findViewById(R.id.footer_totalProdutos);
+        textTotalProdutos.setText("Total Geral: " + produtos.size() + " produtos.");
+        
+        textValorTotal = (TextView) findViewById(R.id.footer_valorTotal);
+        textValorTotal.setText("R$ " + getValorTotalDosProdutos());
         
         editAddProduto.setOnKeyListener(new OnKeyListener() {
 			@Override
@@ -76,27 +83,37 @@ public class MainActivity extends ListActivity {
 				renderizarProdutos();				
 			}
 		});              
-    }	
-        
-    @Override
+    }    
+
+	@Override
     protected void onListItemClick(ListView l, View v, int position, long id) {
     	super.onListItemClick(l, v, position, id);
     	
     	final Produto produtoSelecionado =  (Produto) this.getListAdapter().getItem(position);
     	
+    	/*
+    	 * configurar um campo de input no alert dialog.
+    	 */
+    	final EditText input = new EditText(this);
+    	input.setSingleLine(true);
+    	input.setHint("valor do produto");
+    	input.setInputType(InputType.TYPE_CLASS_NUMBER);    	
+    	
     	AlertDialog.Builder builder = new AlertDialog.Builder(this);
+    	builder.setView(input);
     	builder.setTitle(produtoSelecionado.getDescricao().toUpperCase());
-    	builder.setMessage("Pegar este produto e...");
+    	builder.setMessage("Pegar este produto e...");   	
     	
     	builder.setPositiveButton("Riscar", new DialogInterface.OnClickListener() {
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
-				
-				List<Produto> listaAux = new ArrayList<Produto>();
+				String valor = input.getText().toString().trim();
+				List<Produto> listaAux = new ArrayList<Produto>();			
 				
 				for(Produto produto : produtos){
-					if(produto.getDescricao().equals(produtoSelecionado.getDescricao())){
+					if(produto.getDescricao().equals(produtoSelecionado.getDescricao())){						
 						produto.setRiscado(true);
+						produto.setValor(Double.parseDouble(valor));
 					}
 					listaAux.add(produto);
 				}
@@ -131,9 +148,18 @@ public class MainActivity extends ListActivity {
     	alertDialog.show();    	
     }
     
-    protected void renderizarProdutos() {
-    	textTotalProdutos.setText("Total de itens no carrinho: " + produtos.size() + " produtos.");
+    private void renderizarProdutos() {
+    	textTotalProdutos.setText("Total Geral: " + produtos.size() + " produtos.");
+    	textValorTotal.setText("R$ " + getValorTotalDosProdutos());
     	Collections.sort(produtos);
 		setListAdapter(new ProdutoAdapter(this, produtos));
+	}
+    
+    private String getValorTotalDosProdutos() {
+    	double valorTotal = 0.0;
+    	for(Produto produto : produtos){
+    		valorTotal += produto.getValor();
+    	}
+    	return String.valueOf(valorTotal);
 	}
 }

@@ -47,10 +47,13 @@ public class ProdutoAdapter extends BaseAdapter implements ListAdapter {
 		Produto produto = produtos.get(position);
 		
 		LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-		View stringView = inflater.inflate(R.layout.list_adapter_produto, null);
+		View produtoView = inflater.inflate(R.layout.list_adapter_produto, null);
 		
-		TextView textViewNomeProduto = (TextView) stringView.findViewById(R.id.listAdapterOrcamento_nomeProduto);
+		TextView textViewNomeProduto = (TextView) produtoView.findViewById(R.id.listAdapterOrcamento_nomeProduto);
 		textViewNomeProduto.setText(produto.getDescricao());
+		
+		TextView textViewValorProduto = (TextView) produtoView.findViewById(R.id.listAdapterOrcamento_valorProduto);
+		textViewValorProduto.setText("R$ " + String.valueOf(produto.getValor()));
 		
 		if(produto.isRiscado()){
 			textViewNomeProduto.setTextColor(Color.RED);
@@ -64,6 +67,6 @@ public class ProdutoAdapter extends BaseAdapter implements ListAdapter {
 			
 		}	
 		
-		return stringView;
+		return produtoView;
 	}
 }
