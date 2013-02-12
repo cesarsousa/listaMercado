@@ -7,6 +7,7 @@ import android.content.Context;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.text.SpannableString;
+import android.text.SpannableStringBuilder;
 import android.text.style.StyleSpan;
 import android.text.style.UnderlineSpan;
 import android.view.LayoutInflater;
@@ -59,11 +60,17 @@ public class ProdutoAdapter extends BaseAdapter implements ListAdapter {
 			textViewNomeProduto.setTextColor(Color.RED);
 			
 			String tempString = produto.getDescricao();
-			SpannableString spanString = new SpannableString(tempString);
-			spanString.setSpan(new UnderlineSpan(), 0, spanString.length(), 0);
-			spanString.setSpan(new StyleSpan(Typeface.BOLD), 0, spanString.length(), 0);
-			spanString.setSpan(new StyleSpan(Typeface.ITALIC), 0, spanString.length(), 0);
-			textViewNomeProduto.setText(spanString);	
+			SpannableString spanStringDescricao = new SpannableString(tempString);
+			spanStringDescricao.setSpan(new UnderlineSpan(), 0, spanStringDescricao.length(), 0);
+			spanStringDescricao.setSpan(new StyleSpan(Typeface.BOLD), 0, spanStringDescricao.length(), 0);
+			spanStringDescricao.setSpan(new StyleSpan(Typeface.ITALIC), 0, spanStringDescricao.length(), 0);
+			textViewNomeProduto.setText(spanStringDescricao);
+			
+			if(produto.getValor() > 0){
+				SpannableString spanStringValor = new SpannableString(textViewValorProduto.getText());
+				spanStringValor.setSpan(new StyleSpan(Typeface.BOLD), 0, spanStringValor.length(), 0);
+				textViewValorProduto.setText(spanStringValor);
+			}
 			
 		}	
 		

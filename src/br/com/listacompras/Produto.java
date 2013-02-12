@@ -1,31 +1,61 @@
 package br.com.listacompras;
 
+import android.provider.BaseColumns;
 
-public class Produto implements Comparable<Produto>{
+
+public class Produto implements Comparable<Produto>, BaseColumns{
 	
 	public static final String DESCRICAO = "descricao";
+	public static final String QUANTIDADE = "quantidade";
 	public static final String VALOR = "valor";
 	public static final String RISCADO = "riscado";
 	
+	private long id;
 	private String descricao;
+	private int quantidade;
 	private double valor;
 	private boolean riscado;	
 	
 	public Produto(String descricao) {
 		this.descricao = descricao;
+		this.quantidade = 1;
 	}
+	
+	public Produto(String descricao, int quantidade) {
+		this.descricao = descricao;
+		this.quantidade = quantidade;
+	}
+	
+	
+	public long getId() {
+		return id;
+	}
+	public void setId(long id) {
+		this.id = id;
+	}
+	
+	
 	public String getDescricao() {
 		return descricao;
-	}
+	}	
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
+	
+	public int getQuantidade() {
+		return quantidade;
+	}
+	public void setQuantidade(int quantidade) {
+		this.quantidade = quantidade;
+	}
+	
 	public boolean isRiscado() {
 		return riscado;
 	}
 	public void setRiscado(boolean riscado) {
 		this.riscado = riscado;
 	}
+	
 	public void setValor(double valor) {
 		this.valor = valor;
 	}
