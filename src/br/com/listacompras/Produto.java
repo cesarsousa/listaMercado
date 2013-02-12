@@ -1,6 +1,11 @@
 package br.com.listacompras;
 
+
 public class Produto implements Comparable<Produto>{
+	
+	public static final String DESCRICAO = "descricao";
+	public static final String VALOR = "valor";
+	public static final String RISCADO = "riscado";
 	
 	private String descricao;
 	private double valor;
