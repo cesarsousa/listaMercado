@@ -1,17 +1,17 @@
 package br.com.listacompras;
 
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import android.R.integer;
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.app.ListActivity;
 import android.content.DialogInterface;
-import android.graphics.MaskFilter;
 import android.os.Bundle;
 import android.text.InputType;
-import android.util.Log;
 import android.view.KeyEvent;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.View.OnKeyListener;
@@ -20,7 +20,10 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+import br.com.listacompras.repositorio.ProdutoRepositorio;
+import br.com.listacompras.repositorio.ProdutoRepositorioScript;
 
+@SuppressLint("DefaultLocale")
 public class MainActivity extends ListActivity {
 	
 	private AlertDialog alertDialog;
@@ -31,12 +34,16 @@ public class MainActivity extends ListActivity {
 	private TextView textTotalProdutos;	
 	private TextView textValorTotal;	
 	
-	private static List<Produto> produtos = new ArrayList<Produto>();
+	private ProdutoRepositorio repositorio;
+	private static List<Produto> produtos;
 	
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
+        
+        repositorio = new ProdutoRepositorioScript(this);
+        produtos = repositorio.buscarProdutos();        
                 
         editAddProduto = (EditText) findViewById(R.id.editAddProduto);
         btAddProduto = (Button) findViewById(R.id.btAddProduto);               
@@ -67,7 +74,8 @@ public class MainActivity extends ListActivity {
 				if("".equals(descricao)){
 					Toast.makeText(MainActivity.this, "Digite o produto", Toast.LENGTH_SHORT).show();
 				}else{
-					produtos.add(new Produto(descricao));
+					
+					repositorio.salvar(new Produto(descricao));					
 					editAddProduto.setText("");
 					editAddProduto.setFocusable(true);					
 					
@@ -79,10 +87,16 @@ public class MainActivity extends ListActivity {
         btNovaLista.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View arg0) {
-				produtos = new ArrayList<Produto>();
+								
+				for(Produto produto : repositorio.buscarProdutos()){
+					repositorio.deletar(produto.getId());
+				}
+				
 				renderizarProdutos();				
 			}
-		});              
+		});
+        
+        renderizarProdutos();
     }    
 
 	@Override
@@ -91,54 +105,56 @@ public class MainActivity extends ListActivity {
     	
     	final Produto produtoSelecionado =  (Produto) this.getListAdapter().getItem(position);
     	
+    	LayoutInflater factory = LayoutInflater.from(this);
+    	final View viewFormAlterar = factory.inflate(R.layout.alterar_produto, null);
+    	
     	/*
     	 * configurar um campo de input no alert dialog.
     	 */
-    	final EditText input = new EditText(this);
-    	input.setSingleLine(true);
-    	input.setHint("valor do produto");
-    	input.setInputType(InputType.TYPE_CLASS_NUMBER);    	
+    	/*final EditText inputQuantidade = new EditText(this);
+    	inputQuantidade.setSingleLine(true);
+    	inputQuantidade.setHint("QTD");
+    	inputQuantidade.setInputType(InputType.TYPE_CLASS_NUMBER); 
+    	
+    	final EditText inputValor = new EditText(this);
+    	inputValor.setSingleLine(true);
+    	inputValor.setHint("valor do produto");
+    	inputValor.setInputType(InputType.TYPE_CLASS_NUMBER);   */ 	
     	
     	AlertDialog.Builder builder = new AlertDialog.Builder(this);
-    	builder.setView(input);
-    	builder.setTitle(produtoSelecionado.getDescricao().toUpperCase());
+    	builder.setView(viewFormAlterar);
+    	builder.setTitle(produtoSelecionado.getDescricao());
     	builder.setMessage("Pegar este produto e...");   	
     	
     	builder.setPositiveButton("Riscar", new DialogInterface.OnClickListener() {
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
-				String valor = input.getText().toString().trim();
-				List<Produto> listaAux = new ArrayList<Produto>();			
 				
-				for(Produto produto : produtos){
-					if(produto.getDescricao().equals(produtoSelecionado.getDescricao())){						
-						produto.setRiscado(true);
-						produto.setValor(Double.parseDouble(valor));
-					}
-					listaAux.add(produto);
+				final EditText editQuantidade = (EditText) viewFormAlterar.findViewById(R.id.alterarQuantidade);
+				String strQuantidade = editQuantidade.getText().toString().trim();
+				int quantidade = "".equals(strQuantidade) ? 0 : Integer.parseInt(strQuantidade);
+							
+					final EditText editValor = (EditText) viewFormAlterar.findViewById(R.id.alterarValor);
+					
+					String strValor = editValor.getText().toString().trim();				
+					double valor = "".equals(strValor) ? 0 : Double.parseDouble(editValor.getText().toString().trim());
+					
+					produtoSelecionado.setQuantidade(quantidade);
+					produtoSelecionado.setValor(quantidade == 0 ? 0 : valor);
+					produtoSelecionado.setRiscado(true);				
+					
+					repositorio.salvar(produtoSelecionado);				
+					
+					renderizarProdutos();
 				}
-				
-				produtos = new ArrayList<Produto>();
-				produtos.addAll(listaAux);
-				
-				renderizarProdutos();
-			}
+			
 		});
     	
     	builder.setNegativeButton("Excluir", new DialogInterface.OnClickListener() {
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
 				
-				List<Produto> listaAux = new ArrayList<Produto>();
-				
-				for(Produto produto : produtos){
-					if(!produto.getDescricao().equals(produtoSelecionado.getDescricao())){
-						listaAux.add(produto);
-					}
-				}
-				
-				produtos = new ArrayList<Produto>();
-				produtos.addAll(listaAux);
+				repositorio.deletar(produtoSelecionado.getId());
 				
 				renderizarProdutos();
 			}
@@ -149,6 +165,7 @@ public class MainActivity extends ListActivity {
     }
     
     private void renderizarProdutos() {
+    	produtos = repositorio.buscarProdutos();    	
     	textTotalProdutos.setText("Total Geral: " + produtos.size() + " produtos.");
     	textValorTotal.setText("R$ " + getValorTotalDosProdutos());
     	Collections.sort(produtos);
@@ -162,4 +179,12 @@ public class MainActivity extends ListActivity {
     	}
     	return String.valueOf(valorTotal);
 	}
+        
+    @Override
+    protected void onPause() {
+    	repositorio.fechar();
+    	super.onPause();
+    }
+    
+    
 }

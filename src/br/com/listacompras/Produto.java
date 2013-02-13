@@ -5,6 +5,8 @@ import android.provider.BaseColumns;
 
 public class Produto implements Comparable<Produto>, BaseColumns{
 	
+	public static String[] colunas = {Produto._ID, Produto.DESCRICAO, Produto.QUANTIDADE, Produto.VALOR, Produto.RISCADO};
+	
 	public static final String DESCRICAO = "descricao";
 	public static final String QUANTIDADE = "quantidade";
 	public static final String VALOR = "valor";
@@ -14,7 +16,9 @@ public class Produto implements Comparable<Produto>, BaseColumns{
 	private String descricao;
 	private int quantidade;
 	private double valor;
-	private boolean riscado;	
+	private boolean riscado;
+	
+	public Produto(){}
 	
 	public Produto(String descricao) {
 		this.descricao = descricao;

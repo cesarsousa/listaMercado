@@ -16,6 +16,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ListAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class ProdutoAdapter extends BaseAdapter implements ListAdapter {
 	
@@ -45,7 +46,7 @@ public class ProdutoAdapter extends BaseAdapter implements ListAdapter {
 	@Override
 	public View getView(int position, View view, ViewGroup parent) {
 		
-		Produto produto = produtos.get(position);
+		Produto produto = produtos.get(position);	
 		
 		LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		View produtoView = inflater.inflate(R.layout.list_adapter_produto, null);
