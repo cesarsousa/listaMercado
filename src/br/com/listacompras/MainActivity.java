@@ -124,7 +124,7 @@ public class MainActivity extends ListActivity {
     	AlertDialog.Builder builder = new AlertDialog.Builder(this);
     	builder.setView(viewFormAlterar);
     	builder.setTitle(produtoSelecionado.getDescricao());
-    	builder.setMessage("Pegar este produto e...");   	
+    	builder.setMessage("Entrar com as informações e...");   	
     	
     	builder.setPositiveButton("Riscar", new DialogInterface.OnClickListener() {
 			@Override
@@ -134,20 +134,20 @@ public class MainActivity extends ListActivity {
 				String strQuantidade = editQuantidade.getText().toString().trim();
 				int quantidade = "".equals(strQuantidade) ? 0 : Integer.parseInt(strQuantidade);
 							
-					final EditText editValor = (EditText) viewFormAlterar.findViewById(R.id.alterarValor);
-					
-					String strValor = editValor.getText().toString().trim();				
-					double valor = "".equals(strValor) ? 0 : Double.parseDouble(editValor.getText().toString().trim());
-					
-					produtoSelecionado.setQuantidade(quantidade);
-					produtoSelecionado.setValor(quantidade == 0 ? 0 : valor);
-					produtoSelecionado.setRiscado(true);				
-					
-					repositorio.salvar(produtoSelecionado);				
-					
-					renderizarProdutos();
-				}
-			
+				final EditText editValor = (EditText) viewFormAlterar.findViewById(R.id.alterarValor);
+				
+				String strValor = editValor.getText().toString().trim();				
+				double valor = "".equals(strValor) ? 0 : Double.parseDouble(editValor.getText().toString().trim());
+				
+				produtoSelecionado.setQuantidade(quantidade);
+				produtoSelecionado.setValor(quantidade == 0 ? 0 : valor);
+				produtoSelecionado.setRiscado(quantidade == 0 ? false : true);				
+				
+				repositorio.salvar(produtoSelecionado);				
+				
+				renderizarProdutos();
+			}
+		
 		});
     	
     	builder.setNegativeButton("Excluir", new DialogInterface.OnClickListener() {
@@ -175,7 +175,7 @@ public class MainActivity extends ListActivity {
     private String getValorTotalDosProdutos() {
     	double valorTotal = 0.0;
     	for(Produto produto : produtos){
-    		valorTotal += produto.getValor();
+    		valorTotal += (produto.getValor() * produto.getQuantidade());
     	}
     	return String.valueOf(valorTotal);
 	}

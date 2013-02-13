@@ -54,12 +54,15 @@ public class ProdutoAdapter extends BaseAdapter implements ListAdapter {
 		TextView textViewNomeProduto = (TextView) produtoView.findViewById(R.id.listAdapterOrcamento_nomeProduto);
 		textViewNomeProduto.setText(produto.getDescricao());
 		
+		TextView textViewQtdProduto =  (TextView) produtoView.findViewById(R.id.listAdapterOrcamento_qtdProduto);
+		textViewQtdProduto.setText("(" + String.valueOf(produto.getQuantidade()) + ")");
+		
 		TextView textViewValorProduto = (TextView) produtoView.findViewById(R.id.listAdapterOrcamento_valorProduto);
 		textViewValorProduto.setText("R$ " + String.valueOf(produto.getValor()));
 		
 		if(produto.isRiscado()){
 			textViewNomeProduto.setTextColor(Color.RED);
-			
+						
 			String tempString = produto.getDescricao();
 			SpannableString spanStringDescricao = new SpannableString(tempString);
 			spanStringDescricao.setSpan(new UnderlineSpan(), 0, spanStringDescricao.length(), 0);

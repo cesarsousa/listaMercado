@@ -40,7 +40,8 @@ public final class R {
         public static final int footer_valorTotal=0x7f070003;
         public static final int layoutHeader=0x7f070004;
         public static final int listAdapterOrcamento_nomeProduto=0x7f070008;
-        public static final int listAdapterOrcamento_valorProduto=0x7f070009;
+        public static final int listAdapterOrcamento_qtdProduto=0x7f070009;
+        public static final int listAdapterOrcamento_valorProduto=0x7f07000a;
     }
     public static final class layout {
         public static final int alterar_produto=0x7f030000;

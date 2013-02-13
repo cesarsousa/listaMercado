@@ -22,7 +22,7 @@ public class Produto implements Comparable<Produto>, BaseColumns{
 	
 	public Produto(String descricao) {
 		this.descricao = descricao;
-		this.quantidade = 1;
+		this.quantidade = 0;
 	}
 	
 	public Produto(String descricao, int quantidade) {
