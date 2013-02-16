@@ -25,10 +25,12 @@ public final class R {
         public static final int vermelho=0x7f040009;
     }
     public static final class drawable {
-        public static final int gradiente=0x7f020000;
-        public static final int icon=0x7f020001;
-        public static final int shape_footer=0x7f020002;
-        public static final int shape_header=0x7f020003;
+        public static final int bt_verde=0x7f020000;
+        public static final int bt_vermelho=0x7f020001;
+        public static final int gradiente=0x7f020002;
+        public static final int icon=0x7f020003;
+        public static final int shape_footer=0x7f020004;
+        public static final int shape_header=0x7f020005;
     }
     public static final class id {
         public static final int alterarQuantidade=0x7f070000;
@@ -51,27 +53,20 @@ public final class R {
         public static final int main=0x7f030004;
     }
     public static final class string {
-        public static final int abrirSite=0x7f060007;
-        public static final int add=0x7f06000e;
-        public static final int aguarde=0x7f060002;
-        public static final int app_name=0x7f060001;
-        public static final int copyright=0x7f060003;
-        public static final int descricao=0x7f06000d;
+        public static final int add=0x7f060005;
+        public static final int app_name=0x7f060000;
+        public static final int bt_add=0x7f060008;
+        public static final int copyright=0x7f060001;
+        public static final int descricao=0x7f060004;
         /**  Mensagens 
          */
-        public static final int erro_conexao_indisponivel=0x7f060005;
-        public static final int erro_io=0x7f060006;
-        public static final int hello=0x7f060000;
-        public static final int menu_classicos=0x7f06000a;
-        public static final int menu_esportivos=0x7f060009;
-        public static final int menu_luxo=0x7f060008;
-        public static final int menu_sobre=0x7f06000b;
-        public static final int nome=0x7f06000c;
-        public static final int novaLista=0x7f06000f;
-        public static final int titulo=0x7f060004;
-        public static final int valor=0x7f060010;
+        public static final int nome=0x7f060003;
+        public static final int novaLista=0x7f060006;
+        public static final int titulo=0x7f060002;
+        public static final int valor=0x7f060007;
     }
     public static final class style {
+        public static final int buttonText=0x7f050005;
         /**  tema padrão 
          */
         public static final int tema=0x7f050000;

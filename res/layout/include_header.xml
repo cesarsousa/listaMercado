@@ -31,19 +31,16 @@
      	<TableRow>
      		<Button 
 		    	android:id="@+id/btNovaLista"
-		    	android:layout_width="fill_parent"
-		    	android:layout_height="wrap_content"
-		    	android:text="@string/novaLista"
-		    	android:textColor="@color/preto"
-		    	android:textStyle="bold"/> 
+		    	style="@style/buttonText"
+		    	android:background="@drawable/bt_vermelho"
+		    	android:text="@string/novaLista"/> 
     
 		    <Button 
 		    	android:id="@+id/btAddProduto"
-		    	android:layout_width="fill_parent"
-		    	android:layout_height="wrap_content"
+		    	style="@style/buttonText"
+		    	android:background="@drawable/bt_verde"
 		    	android:text="@string/add"
-		    	android:textColor="@color/preto"
-		    	android:textStyle="bold"/>
+		    	/>
     	</TableRow>    
     </TableLayout>       	
 </LinearLayout>
