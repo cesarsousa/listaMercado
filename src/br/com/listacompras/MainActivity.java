@@ -3,13 +3,11 @@ package br.com.listacompras;
 import java.util.Collections;
 import java.util.List;
 
-import android.R.integer;
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.app.ListActivity;
 import android.content.DialogInterface;
 import android.os.Bundle;
-import android.text.InputType;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
