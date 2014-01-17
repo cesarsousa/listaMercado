@@ -3,7 +3,6 @@ package br.com.listacompras;
 import java.util.Collections;
 import java.util.List;
 
-import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.app.ListActivity;
 import android.content.DialogInterface;
@@ -21,7 +20,6 @@ import android.widget.Toast;
 import br.com.listacompras.repositorio.ProdutoRepositorio;
 import br.com.listacompras.repositorio.ProdutoRepositorioScript;
 
-@SuppressLint("DefaultLocale")
 public class MainActivity extends ListActivity {
 	
 	private AlertDialog alertDialog;
@@ -29,6 +27,7 @@ public class MainActivity extends ListActivity {
 	private EditText editAddProduto;
 	private Button btAddProduto;
 	private Button btNovaLista;
+	private Button btSair;
 	private TextView textTotalProdutos;	
 	private TextView textValorTotal;	
 	
@@ -46,6 +45,7 @@ public class MainActivity extends ListActivity {
         editAddProduto = (EditText) findViewById(R.id.editAddProduto);
         btAddProduto = (Button) findViewById(R.id.btAddProduto);               
         btNovaLista = (Button) findViewById(R.id.btNovaLista);
+        btSair = (Button) findViewById(R.id.btSair);
         
         textTotalProdutos = (TextView) findViewById(R.id.footer_totalProdutos);
         textTotalProdutos.setText("Total Geral: " + produtos.size() + " produtos.");
@@ -91,6 +91,13 @@ public class MainActivity extends ListActivity {
 				}
 				
 				renderizarProdutos();				
+			}
+		});
+        
+        btSair.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View arg0) {
+				finish();		
 			}
 		});
         

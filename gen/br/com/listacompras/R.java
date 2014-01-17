@@ -25,25 +25,27 @@ public final class R {
         public static final int vermelho=0x7f040009;
     }
     public static final class drawable {
-        public static final int bt_verde=0x7f020000;
-        public static final int bt_vermelho=0x7f020001;
-        public static final int gradiente=0x7f020002;
-        public static final int icon=0x7f020003;
-        public static final int shape_footer=0x7f020004;
-        public static final int shape_header=0x7f020005;
+        public static final int bt_azul=0x7f020000;
+        public static final int bt_verde=0x7f020001;
+        public static final int bt_vermelho=0x7f020002;
+        public static final int gradiente=0x7f020003;
+        public static final int icon=0x7f020004;
+        public static final int shape_footer=0x7f020005;
+        public static final int shape_header=0x7f020006;
     }
     public static final class id {
         public static final int alterarQuantidade=0x7f070000;
         public static final int alterarValor=0x7f070001;
-        public static final int btAddProduto=0x7f070007;
-        public static final int btNovaLista=0x7f070006;
+        public static final int btAddProduto=0x7f070006;
+        public static final int btNovaLista=0x7f070007;
+        public static final int btSair=0x7f070008;
         public static final int editAddProduto=0x7f070005;
         public static final int footer_totalProdutos=0x7f070002;
         public static final int footer_valorTotal=0x7f070003;
         public static final int layoutHeader=0x7f070004;
-        public static final int listAdapterOrcamento_nomeProduto=0x7f070008;
-        public static final int listAdapterOrcamento_qtdProduto=0x7f070009;
-        public static final int listAdapterOrcamento_valorProduto=0x7f07000a;
+        public static final int listAdapterOrcamento_nomeProduto=0x7f070009;
+        public static final int listAdapterOrcamento_qtdProduto=0x7f07000a;
+        public static final int listAdapterOrcamento_valorProduto=0x7f07000b;
     }
     public static final class layout {
         public static final int alterar_produto=0x7f030000;
@@ -55,7 +57,8 @@ public final class R {
     public static final class string {
         public static final int add=0x7f060005;
         public static final int app_name=0x7f060000;
-        public static final int bt_add=0x7f060008;
+        public static final int btSair=0x7f060008;
+        public static final int bt_add=0x7f060009;
         public static final int copyright=0x7f060001;
         public static final int descricao=0x7f060004;
         /**  Mensagens 

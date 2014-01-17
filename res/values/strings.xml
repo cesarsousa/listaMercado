@@ -7,9 +7,10 @@
     <!-- Mensagens -->
     <string name="nome">Nome</string>
     <string name="descricao">Descrição do produto</string>
-    <string name="add">adicionar produto</string>
-    <string name="novaLista">limpar lista</string>
+    <string name="add">adicionar</string>
+    <string name="novaLista">Limpar Lista</string>
     <string name="valor">valor</string>
+    <string name="btSair">Sair</string>
     
     <string name="bt_add">adicionar produto</string>
     <style name="buttonText">

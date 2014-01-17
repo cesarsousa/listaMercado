@@ -29,18 +29,25 @@
     	android:stretchColumns="1">
     
      	<TableRow>
-     		<Button 
-		    	android:id="@+id/btNovaLista"
-		    	style="@style/buttonText"
-		    	android:background="@drawable/bt_vermelho"
-		    	android:text="@string/novaLista"/> 
-    
-		    <Button 
+     	    <Button 
 		    	android:id="@+id/btAddProduto"
 		    	style="@style/buttonText"
 		    	android:background="@drawable/bt_verde"
-		    	android:text="@string/add"
-		    	/>
+		    	android:text="@string/add"/>
+     	    
+     		<Button 
+		    	android:id="@+id/btNovaLista"
+		    	style="@style/buttonText"
+		    	android:background="@drawable/bt_azul"
+		    	android:text="@string/novaLista"/>
+     		
+     		<Button 
+		    	android:id="@+id/btSair"
+		    	style="@style/buttonText"
+		    	android:background="@drawable/bt_vermelho"
+		    	android:text="@string/btSair"/> 
+    
+		    
     	</TableRow>    
     </TableLayout>       	
 </LinearLayout>
