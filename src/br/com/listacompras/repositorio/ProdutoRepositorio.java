@@ -3,18 +3,17 @@ package br.com.listacompras.repositorio;
 import java.util.ArrayList;
 import java.util.List;
 
-import br.com.listacompras.Constante;
-import br.com.listacompras.Produto;
-
 import android.content.ContentValues;
-import android.content.Context;
 import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
+import br.com.listacompras.Constante;
+import br.com.listacompras.Produto;
 
 public class ProdutoRepositorio {
 	
+	@SuppressWarnings("unused")
 	private static final String NOME_BDADOS = "listacompras";
 	private static final String NOME_TABELA = "produto";
 	
