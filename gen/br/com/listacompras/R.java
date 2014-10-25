@@ -30,8 +30,10 @@ public final class R {
         public static final int bt_vermelho=0x7f020002;
         public static final int gradiente=0x7f020003;
         public static final int icon=0x7f020004;
-        public static final int shape_footer=0x7f020005;
-        public static final int shape_header=0x7f020006;
+        public static final int icon2=0x7f020005;
+        public static final int icon3=0x7f020006;
+        public static final int shape_footer=0x7f020007;
+        public static final int shape_header=0x7f020008;
     }
     public static final class id {
         public static final int alterarQuantidade=0x7f070000;
