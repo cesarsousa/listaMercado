@@ -1,6 +1,7 @@
 package br.com.listacompras.repositorio;
 
 import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
 
 public class ProdutoRepositorioScript extends ProdutoRepositorio {
 	
@@ -24,5 +25,10 @@ public class ProdutoRepositorioScript extends ProdutoRepositorio {
 		dbHelper = new SQLiteHelper(context, NOME_BANCO, VERSAO_BANCO, SCRIPT_DATABASE_CREATE, SCRIPT_DATABASE_DELETE);
 		db = dbHelper.getWritableDatabase();
 	}
+	
+	public static SQLiteDatabase getConexao(){
+		return db;
+	}
+	
 
 }

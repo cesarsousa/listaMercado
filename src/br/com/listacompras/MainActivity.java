@@ -73,11 +73,16 @@ public class MainActivity extends ListActivity {
 					Toast.makeText(MainActivity.this, "Digite o produto", Toast.LENGTH_SHORT).show();
 				}else{
 					
+					if(!ProdutoRepositorioScript.getConexao().isOpen()){
+						repositorio = new ProdutoRepositorioScript(MainActivity.this);						
+					}
+					
 					repositorio.salvar(new Produto(descricao));					
 					editAddProduto.setText("");
 					editAddProduto.setFocusable(true);					
 					
 			        renderizarProdutos(); 
+					
 				}
 			}		
 		});

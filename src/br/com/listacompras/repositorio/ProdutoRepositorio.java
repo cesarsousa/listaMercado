@@ -17,7 +17,7 @@ public class ProdutoRepositorio {
 	private static final String NOME_BDADOS = "listacompras";
 	private static final String NOME_TABELA = "produto";
 	
-	protected SQLiteDatabase db;	
+	protected static SQLiteDatabase db;	
 	
 	public long salvar(Produto produto){
 		long id = produto.getId();

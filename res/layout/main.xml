@@ -10,55 +10,7 @@
     <com.google.android.apps.iosched.ui.widget.DashboardLayout
     	android:layout_width="fill_parent"
     	android:layout_height="0dp"
-    	android:layout_weight="1">
-    
-    <!-- <Button 
-    	android:id="@+id/btClassicos"
-    	android:text="@string/menu_classicos"
-    	android:layout_width="wrap_content"
-    	android:layout_height="wrap_content"
-    	android:drawableTop="@drawable/btn_carro_classico"
-    	android:drawablePadding="10dp"
-    	android:background="@null"
-    	android:textStyle="bold"
-    	android:textColor="@color/preto"
-    />
-    
-    <Button 
-    	android:id="@+id/btLuxo"
-    	android:text="@string/menu_luxo"
-    	android:layout_width="wrap_content"
-    	android:layout_height="wrap_content"
-    	android:drawableTop="@drawable/btn_carro_luxo"
-    	android:drawablePadding="10dp"
-    	android:background="@null"
-    	android:textStyle="bold"
-    	android:textColor="@color/preto"
-    />
-    
-    <Button 
-    	android:id="@+id/btEsportivos"
-    	android:text="@string/menu_esportivos"
-    	android:layout_width="wrap_content"
-    	android:layout_height="wrap_content"
-    	android:drawableTop="@drawable/btn_carro_esportivo"
-    	android:drawablePadding="10dp"
-    	android:background="@null"
-    	android:textStyle="bold"
-    	android:textColor="@color/preto"
-    />
-    
-    <Button 
-    	android:id="@+id/btSobre"
-    	android:text="@string/menu_sobre"
-    	android:layout_width="wrap_content"
-    	android:layout_height="wrap_content"
-    	android:drawableTop="@drawable/btn_sobre"
-    	android:drawablePadding="10dp"
-    	android:background="@null"
-    	android:textStyle="bold"
-    	android:textColor="@color/preto"
-    /> -->
+    	android:layout_weight="1">   
     
     <ListView
     	android:id="@+id/android:list" 

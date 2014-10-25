@@ -30,10 +30,7 @@ public final class R {
         public static final int bt_vermelho=0x7f020002;
         public static final int gradiente=0x7f020003;
         public static final int icon=0x7f020004;
-        public static final int icon2=0x7f020005;
-        public static final int icon3=0x7f020006;
-        public static final int shape_footer=0x7f020007;
-        public static final int shape_header=0x7f020008;
+        public static final int shape_header=0x7f020005;
     }
     public static final class id {
         public static final int alterarQuantidade=0x7f070000;
@@ -57,8 +54,9 @@ public final class R {
         public static final int main=0x7f030004;
     }
     public static final class string {
-        public static final int add=0x7f060005;
         public static final int app_name=0x7f060000;
+        public static final int btMenuAdicionar=0x7f060005;
+        public static final int btMenuRemoverTodos=0x7f060006;
         public static final int btSair=0x7f060008;
         public static final int bt_add=0x7f060009;
         public static final int copyright=0x7f060001;
@@ -66,7 +64,6 @@ public final class R {
         /**  Mensagens 
          */
         public static final int nome=0x7f060003;
-        public static final int novaLista=0x7f060006;
         public static final int titulo=0x7f060002;
         public static final int valor=0x7f060007;
     }
