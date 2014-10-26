@@ -12,7 +12,7 @@
     <string name="valor">valor</string>
     <string name="btSair">Sair</string>
     
-    <string name="bt_add">adicionar produto</string>
+    <string name="bt_add">Adicionar</string>
     <style name="buttonText">
         <item name="android:layout_width">fill_parent</item>  
 	   <item name="android:layout_height">wrap_content</item>  

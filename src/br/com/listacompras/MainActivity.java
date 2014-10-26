@@ -90,6 +90,10 @@ public class MainActivity extends ListActivity {
         btNovaLista.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View arg0) {
+				
+				if(!ProdutoRepositorioScript.getConexao().isOpen()){
+					repositorio = new ProdutoRepositorioScript(MainActivity.this);						
+				}
 								
 				for(Produto produto : repositorio.buscarProdutos()){
 					repositorio.deletar(produto.getId());
@@ -112,6 +116,10 @@ public class MainActivity extends ListActivity {
 	@Override
     protected void onListItemClick(ListView l, View v, int position, long id) {
     	super.onListItemClick(l, v, position, id);
+    	
+    	if(!ProdutoRepositorioScript.getConexao().isOpen()){
+			repositorio = new ProdutoRepositorioScript(MainActivity.this);						
+		}
     	
     	final Produto produtoSelecionado =  (Produto) this.getListAdapter().getItem(position);
     	
@@ -175,6 +183,11 @@ public class MainActivity extends ListActivity {
     }
     
     private void renderizarProdutos() {
+    	
+    	if(!ProdutoRepositorioScript.getConexao().isOpen()){
+			repositorio = new ProdutoRepositorioScript(MainActivity.this);						
+		}
+    	
     	produtos = repositorio.buscarProdutos();    	
     	textTotalProdutos.setText("Total Geral: " + produtos.size() + " produtos.");
     	textValorTotal.setText("R$ " + getValorTotalDosProdutos());
